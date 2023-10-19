@@ -1,4 +1,5 @@
 import React from 'react';
+import Result from './Result';
 
 const Calculator = () => {
   const handleClick = (buttonName) => (`${buttonName}clicked`);
@@ -7,7 +8,9 @@ const Calculator = () => {
       <div className="container">
         <h2 className="heading">Lets do some Math</h2>
         <section className="section">
-          <div className="results gray-bg flex-container" />
+          <div className="results gray-bg flex-container">
+            <Result />
+          </div>
           <button
             type="button"
             className="items item1 light-bg"
