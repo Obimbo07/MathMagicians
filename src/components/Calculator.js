@@ -1,17 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const Calculator = () => {
-    const handleClick = (buttonName) => {
-        console.log('clicked')
-    }
+  const handleClick = (buttonName) => (`${buttonName}clicked`);
   return (
     <div className="math-container">
       <div className="container">
         <h2 className="heading">Lets do some Math</h2>
         <section className="section">
-          <div className="results gray-bg flex-container">
-
-          </div>
+          <div className="results gray-bg flex-container" />
           <button
             type="button"
             className="items item1 light-bg"
@@ -141,7 +137,7 @@ const Calculator = () => {
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Calculator
+export default Calculator;
