@@ -10,6 +10,14 @@ const Calculator = () => {
   });
   const { total, operation, next } = value;
 
+  const buttons = [
+    ['AC', 'light-bg'], ['+/-', 'light-bg'], ['%', 'light-bg'], ['/', 'golden-bg'],
+    ['7', 'light-bg'], ['8', 'light-bg'], ['9', 'light-bg'], ['x', 'golden-bg'],
+    ['4', 'light-bg'], ['5', 'light-bg'], ['6', 'light-bg'], ['+', 'golden-bg'],
+    ['1', 'light-bg'], ['2', 'light-bg'], ['3', 'light-bg'], ['-', 'golden-bg'],
+    ['0', 'light-bg'], ['=', 'golden-bg'],
+  ];
+
   function clickHandler(num) {
     setValue(calculate(value, num));
   }
@@ -21,132 +29,16 @@ const Calculator = () => {
           <div className="results gray-bg flex-container">
             <Result result={next || operation || total || '0'} />
           </div>
-          <button
-            type="button"
-            className="items item1 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            AC
-          </button>
-          <button
-            type="button"
-            className="items item2 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            +/-
-          </button>
-          <button
-            type="button"
-            className="items item3 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            %
-          </button>
-          <button
-            type="button"
-            className="items item4 golden-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            /
-          </button>
-          <button
-            type="button"
-            className="items item5 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            7
-          </button>
-          <button
-            type="button"
-            className="items item6 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            8
-          </button>
-          <button
-            type="button"
-            className="items item7 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            9
-          </button>
-          <button
-            type="button"
-            className="items item8 golden-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            x
-          </button>
-          <button
-            type="button"
-            className="items item9 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            4
-          </button>
-          <button
-            type="button"
-            className="items item10 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            5
-          </button>
-          <button
-            type="button"
-            className="items item11 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            6
-          </button>
-          <button
-            type="button"
-            className="items item12 golden-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            className="items item13 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            1
-          </button>
-          <button
-            type="button"
-            className="items item14 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            2
-          </button>
-          <button
-            type="button"
-            className="items item15 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            3
-          </button>
-          <button
-            type="button"
-            className="items item16 golden-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            -
-          </button>
-          <button
-            type="button"
-            className="items item17 light-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            0
-          </button>
-          <button
-            type="button"
-            className="items item18 golden-bg"
-            onClick={(e) => clickHandler(e.target.textContent)}
-          >
-            =
-          </button>
+          {buttons.map((btn, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`items item${index + 1} ${btn[1]}`}
+              onClick={() => clickHandler(btn[0])}
+            >
+              {btn[0]}
+            </button>
+          ))}
         </section>
       </div>
     </div>
