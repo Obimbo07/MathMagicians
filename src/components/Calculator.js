@@ -1,142 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import calculate from '../logic/calculate';
 import Result from './Result';
 
 const Calculator = () => {
-  const handleClick = (buttonName) => (`${buttonName}clicked`);
+  const [value, setValue] = useState({
+    total: '0',
+    next: null,
+    operation: null,
+  });
+  const { total, operation, next } = value;
+
+  const buttons = [
+    ['AC', 'light-bg'], ['+/-', 'light-bg'], ['%', 'light-bg'], ['/', 'golden-bg'],
+    ['7', 'light-bg'], ['8', 'light-bg'], ['9', 'light-bg'], ['x', 'golden-bg'],
+    ['4', 'light-bg'], ['5', 'light-bg'], ['6', 'light-bg'], ['+', 'golden-bg'],
+    ['1', 'light-bg'], ['2', 'light-bg'], ['3', 'light-bg'], ['-', 'golden-bg'],
+    ['0', 'light-bg'], ['=', 'golden-bg'],
+  ];
+
+  function clickHandler(num) {
+    setValue(calculate(value, num));
+  }
   return (
     <div className="math-container">
       <div className="container">
         <h2 className="heading">Lets do some Math</h2>
         <section className="section">
           <div className="results gray-bg flex-container">
-            <Result />
+            <Result result={next || operation || total || '0'} />
           </div>
-          <button
-            type="button"
-            className="items item1 light-bg"
-            onClick={() => handleClick('AC')}
-          >
-            AC
-          </button>
-          <button
-            type="button"
-            className="items item2 light-bg"
-            onClick={() => handleClick('+/-')}
-          >
-            +/-
-          </button>
-          <button
-            type="button"
-            className="items item3 light-bg"
-            onClick={() => handleClick('%')}
-          >
-            %
-          </button>
-          <button
-            type="button"
-            className="items item4 golden-bg"
-            onClick={() => handleClick('/')}
-          >
-            /
-          </button>
-          <button
-            type="button"
-            className="items item5 light-bg"
-            onClick={() => handleClick('7')}
-          >
-            7
-          </button>
-          <button
-            type="button"
-            className="items item6 light-bg"
-            onClick={() => handleClick('8')}
-          >
-            8
-          </button>
-          <button
-            type="button"
-            className="items item7 light-bg"
-            onClick={() => handleClick('9')}
-          >
-            9
-          </button>
-          <button
-            type="button"
-            className="items item8 golden-bg"
-            onClick={() => handleClick('x')}
-          >
-            x
-          </button>
-          <button
-            type="button"
-            className="items item9 light-bg"
-            onClick={() => handleClick('4')}
-          >
-            4
-          </button>
-          <button
-            type="button"
-            className="items item10 light-bg"
-            onClick={() => handleClick('5')}
-          >
-            5
-          </button>
-          <button
-            type="button"
-            className="items item11 light-bg"
-            onClick={() => handleClick('6')}
-          >
-            6
-          </button>
-          <button
-            type="button"
-            className="items item12 golden-bg"
-            onClick={() => handleClick('+')}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            className="items item13 light-bg"
-            onClick={() => handleClick('1')}
-          >
-            1
-          </button>
-          <button
-            type="button"
-            className="items item14 light-bg"
-            onClick={() => handleClick('2')}
-          >
-            2
-          </button>
-          <button
-            type="button"
-            className="items item15 light-bg"
-            onClick={() => handleClick('3')}
-          >
-            3
-          </button>
-          <button
-            type="button"
-            className="items item16 golden-bg"
-            onClick={() => handleClick('-')}
-          >
-            -
-          </button>
-          <button
-            type="button"
-            className="items item17 light-bg"
-            onClick={() => handleClick('0')}
-          >
-            0
-          </button>
-          <button
-            type="button"
-            className="items item18 golden-bg"
-            onClick={() => handleClick('=')}
-          >
-            =
-          </button>
+          {buttons.map((btn, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`items item${index + 1} ${btn[1]}`}
+              onClick={() => clickHandler(btn[0])}
+            >
+              {btn[0]}
+            </button>
+          ))}
         </section>
       </div>
     </div>
