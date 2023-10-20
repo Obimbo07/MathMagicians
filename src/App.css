@@ -59,7 +59,9 @@
 .golden-bg {
   background-color: orange;
 }
-
+.equals {
+ width: 208px;
+}
 .light-bg {
   background-color: lightgray;
 }
