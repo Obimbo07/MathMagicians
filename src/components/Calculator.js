@@ -11,11 +11,11 @@ const Calculator = () => {
   const { total, operation, next } = value;
 
   const buttons = [
-    ['AC', 'light-bg'], ['+/-', 'light-bg'], ['%', 'light-bg'], ['/', 'golden-bg'],
-    ['7', 'light-bg'], ['8', 'light-bg'], ['9', 'light-bg'], ['x', 'golden-bg'],
-    ['4', 'light-bg'], ['5', 'light-bg'], ['6', 'light-bg'], ['+', 'golden-bg'],
-    ['1', 'light-bg'], ['2', 'light-bg'], ['3', 'light-bg'], ['-', 'golden-bg'],
-    ['0', 'light-bg'], ['=', 'golden-bg'],
+    { label: 'AC', className: 'light-bg' }, { label: '+/-', className: 'light-bg' }, { label: '%', className: 'light-bg' }, { label: '/', className: 'golden-bg' },
+    { label: '7', className: 'light-bg' }, { label: '8', className: 'light-bg' }, { label: '9', className: 'light-bg' }, { label: 'x', className: 'golden-bg' },
+    { label: '4', className: 'light-bg' }, { label: '5', className: 'light-bg' }, { label: '6', className: 'light-bg' }, { label: '+', className: 'golden-bg' },
+    { label: '1', className: 'light-bg' }, { label: '2', className: 'light-bg' }, { label: '3', className: 'light-bg' }, { label: '-', className: 'golden-bg' },
+    { label: '0', className: 'light-bg' }, { label: '=', className: 'golden-bg equals' },
   ];
 
   function clickHandler(num) {
@@ -29,14 +29,14 @@ const Calculator = () => {
           <div className="results gray-bg flex-container">
             <Result result={next || operation || total || '0'} />
           </div>
-          {buttons.map((btn, index) => (
+          {buttons.map((btn) => (
             <button
-              key={index}
+              key={btn.label}
               type="button"
-              className={`items item${index + 1} ${btn[1]}`}
-              onClick={() => clickHandler(btn[0])}
+              className={`items ${btn.className}`}
+              onClick={() => clickHandler(btn.label)}
             >
-              {btn[0]}
+              {btn.label}
             </button>
           ))}
         </section>

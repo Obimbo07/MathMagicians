@@ -39,10 +39,10 @@ Read a random math-related quote.
 
 <details>
   <ul>
-    <li><a href="#">React.js</a></li>
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JS</a></li>
+    <li><a href="https://react.dev/">React.js</a></li>
+    <li><a href="https://www.w3schools.com/html/">HTML</a></li>
+    <li><a href="https://www.w3schools.com/css/">CSS</a></li>
+    <li><a href="https://www.w3schools.com/js/">JS</a></li>
   </ul>
 </details>
 

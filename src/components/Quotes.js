@@ -1,0 +1,57 @@
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
+const apiEndPoint = 'https://api.api-ninjas.com/v1/quotes?category=computers';
+
+const Quotes = ({ state }) => {
+  const [quotes, setQuotes] = useState([]);
+  const [hasError, sethasError] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      setisLoading(true);
+      try {
+        const response = await fetch(apiEndPoint, {
+          headers: {
+            'X-Api-Key': 'wf39enTG6elSRiVAwxw6VQ==ZAfVsa4eQpa9kvSw',
+            'Content-Type': 'text/plain;charset=UTF-8',
+          },
+          mode: 'cors',
+          redirect: 'follow',
+        });
+
+        const json = await response.json();
+
+        setQuotes(json);
+      } catch (error) {
+        sethasError(true);
+      }
+
+      setisLoading(false);
+    };
+
+    fetchdata();
+  }, [setQuotes, setisLoading, state]);
+
+  if (isLoading) return <div className="status">Loading......</div>;
+  if (hasError) return <div className="status">An error occured</div>;
+
+  return (
+    <div className="status">
+      {quotes.length === 0
+        ? 'loading...............'
+        : quotes.map((q) => <span key={q.quote}>{q.quote}</span>)}
+    </div>
+  );
+};
+
+export default Quotes;
+
+Quotes.propTypes = {
+  state: PropTypes.string,
+};
+
+Quotes.defaultProps = {
+  state: {},
+};
