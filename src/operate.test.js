@@ -14,11 +14,11 @@ describe('operate', () => {
   });
 
   it('should divide two numbers', () => {
-    expect(operate('6', '3', '/')).toBe('2');
+    expect(operate('6', '3', '÷')).toBe('2');
   });
 
   it('should handle division by zero', () => {
-    expect(operate('6', '0', '/')).toBe("Can't divide by 0.");
+    expect(operate('6', '0', '÷')).toBe("Can't divide by 0.");
   });
 
   it('should find the modulo of two numbers', () => {
