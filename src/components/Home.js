@@ -1,18 +1,9 @@
 const Home = () => (
   <div className="home">
-    <h1>Welcome to my page</h1>
+    <h1>Welcome to the magic Math</h1>
     <p className="p1">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi cumque
-      magni placeat repellendus dolorem, enim nesciunt incidunt distinctio sunt
-      corporis sed, quo, laborum eaque nam exercitationem ducimus nisi quas
-      saepe!
-    </p>
-
-    <p className="p2">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolore
-      provident sequi, dolorum repellendus culpa incidunt dicta nobis vero,
-      debitis non excepturi voluptas? Exercitationem alias, vel esse rerum
-      facere libero.
+      Welcome to Math-Magicians, where numbers come alive! Whether you're a seasoned mathematician or just starting to explore the fascinating world of numbers, our website is your ultimate destination for all things math-related. Dive into our powerful calculator tool to solve equations, crunch numbers, and unravel complex mathematical puzzles with ease. But that's not all – be inspired by our curated collection of random mathematical quotes sourced from leading minds across the globe. 
+      Join us on this thrilling journey of discovery and let's unlock the magic of mathematics together! 
     </p>
   </div>
 );
