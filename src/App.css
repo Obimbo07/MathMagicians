@@ -138,12 +138,3 @@ button {
   margin: 20px 0;
   width: 70%;
 }
-
-@media only screen 
-  and (min-device-width : 320px) 
-  and (max-device-width : 480px) {
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
-}
