@@ -138,13 +138,12 @@ button {
   margin: 20px 0;
   width: 70%;
 }
-// eslint-disable-next-line max-len
-// eslint-disable-next-line react/no-unescaped-entities
-// eslint-disable-next-line no-trailing-spaces
-// eslint-disable-next-line max-len
-// eslint-disable-next-line react/no-unescaped-entities
-// eslint-disable-next-line no-trailing-spaces
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
- .container {
-   display: flex;
+
+@media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 480px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
 }
